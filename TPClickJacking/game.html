@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Catch Me!</title>
+    <style>
+#catchButton {
+  position: absolute;
+  top: 300px;
+  left: 100px;
+}
+    </style>
+  </head>
+  <body>
+    <h1>Catch Me!</h1>
+    <p>Score: <span id="score">0</span></p>
+    <button id="catchButton" onclick="changePosition()">Catch Me</button>
+    <button onclick="revealAttack()">Reveal Attack</button>
+    <button onclick="hideAttack()">Hide Attack</button>
+    <iframe src="portal.html" id="iframe" style="opacity:0; pointer-events: none;" width="1260" height="580" title="Example Website"></iframe>
+  </body>
+  <script>
+    window.addEventListener("message", function(event) {
+      if (event.data === "disable-iframe") {
+        let iframe = document.getElementById("iframe");
+        iframe.style.pointerEvents = "none";
+      }
+    });
+
+
+    function revealAttack(){
+      let iframe = document.getElementById("iframe");
+      iframe.style.opacity = 0.7;
+    }
+
+    function hideAttack(){
+      let iframe = document.getElementById("iframe");
+      iframe.style.opacity = 0;
+    }
+
+    function changePosition(){
+
+
+      // position of the login button is top = 273 and left = 10
+      let score = document.getElementById("score");
+      let scoreNumber = parseInt(score.innerText);
+      scoreNumber++;
+      score.innerText = scoreNumber;
+
+      let button = document.getElementById("catchButton");
+      let t = (Math.floor(Math.random() * (650 - 100)) + 100) + "px";
+      let l = (Math.floor(Math.random() * (1200 - 20)) + 20) + "px";
+      if(scoreNumber != 4){
+        button.style.left = l;
+        button.style.top = t;
+        iframe.style.pointerEvents = "none";
+
+      }
+      if (scoreNumber == 4){
+        button.style.left = "10px";
+        button.style.top = "295px";
+        iframe.style.pointerEvents = "auto";
+      }
+    }
+
+  </script>
+
+</html>
+

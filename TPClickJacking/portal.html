@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Portal</title>
+  </head>
+  <body>
+    <h1>Student Portal</h1>
+    <label>Enter your name :  <input type="text" value=""></label><br><br><!-- Add the name field -->
+    <label>Enter your password :  <input type="password" value=""></label><br><br><!-- Add the password field -->
+    <button id="loginButton" onclick="login()">Login</button>
+
+    <p id="message"></p>
+    <!-- Add the Login button -->
+    <script>
+      function login() {
+        document.getElementById("message").innerText = "You are logged in!";
+        window.parent.postMessage("disable-iframe", "*");
+      }
+    </script>
+  </body>
+</html>
+
