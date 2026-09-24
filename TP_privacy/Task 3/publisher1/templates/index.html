@@ -5,12 +5,15 @@
     <title>Publisher 1 page</title>
   </head>
   <body>
-    <h1>Welcome to Publisher 1 page</h1>
+    <h1>Publisher 1: {{ page }}</h1>
+    <a href="/">Home</a>
+    <a href="/article">Technology article</a>
     <iframe
-    src="http://tracker.test:8002/?publisher=publisher-one&page=home"
+    src="http://tracker.test:8002/?publisher=publisher-one&page={{ page }}"
     width="600"
     height="300"
     title="Tracker">
 </iframe>
+    <script src="http://analytics.test:8004/static/analytics.js"></script>
   </body>
 </html>

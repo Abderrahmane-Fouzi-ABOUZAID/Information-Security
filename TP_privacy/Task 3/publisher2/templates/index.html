@@ -6,12 +6,15 @@
     <title>Publisher 2 page</title>
   </head>
   <body>
-    <h2>Welcome to Publisher 2 page</h2>
+    <h2>Publisher 2: {{ page }}</h2>
+    <a href="/">Home</a>
+    <a href="/article">Travel article</a>
     <iframe
-    src="http://tracker.test:8002/?publisher=publisher-two&page=home"
+    src="http://tracker.test:8002/?publisher=publisher-two&page={{ page }}"
     width="600"
     height="300"
     title="Tracker">
 </iframe>
+    <script src="http://analytics.test:8004/static/analytics.js"></script>
   </body>
 </html>
