@@ -1,0 +1,11 @@
+Private-Browsing Mode: The four JavaScript features (User-Agent, Brave Object, Global Privacy Control, and Modern Brands) remain stable. Private browsing is designed to isolate session storage and delete history upon closing; it does not alter the underlying browser software APIs or HTTP headers exposed to the server.
+
+Cookie Blocking: The features remain stable. Blocking third-party cookies or clearing local storage only prevents stateful tracking. It has zero impact on the navigator object properties used for stateless fingerprinting.
+
+Privacy-Preserving Extensions: These cause the features to change. Dedicated anti-fingerprinting extensions actively modify, randomize, or block access to properties like navigator.userAgent and navigator.userAgentData. You will likely see altered strings, randomized values, or "Unknown" / undefined outputs for these fields.
+
+The Privacy Paradox: By actively blocking common APIs or returning randomized, spoofed values, the browser heavily deviates from the norm. This highly customized configuration can actually make the browser more unique, allowing trackers to fingerprint you based on the presence of the privacy tools themselves.
+
+Website Breakage: Aggressively spoofing or blocking JavaScript properties (like User-Agent or screen resolution) often breaks website rendering, layout, and fundamental features.
+
+Network-Level Identifiers: Browser extensions operate at the application layer and cannot mask network-level identifiers like your IP address, DNS requests, or TLS handshake signatures.
