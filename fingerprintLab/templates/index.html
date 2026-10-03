@@ -1,9 +1,25 @@
-<html>
-  <body>
-    <h2>Active Feature Collection</h2>
-    <p id="feature-output">
-      Waiting for JavaScript...
-    </p>
-    <script src="{{ url_for('static', filename='fingerprint.js') }}"></script>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Browser Fingerprinting Lab</title>
+  <style>
+    body { font: 16px system-ui, sans-serif; max-width: 850px; margin: 40px auto; padding: 0 20px; line-height: 1.5; }
+    dt { font-weight: bold; margin-top: 8px; }
+    dd { margin-left: 0; overflow-wrap: anywhere; }
+    code { overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <h1>Browser Fingerprinting Lab</h1>
+  <p>Local demonstration of passive and active browser features.</p>
+  <h2>Task 0–1: Passive HTTP features</h2>
+  <dl>{% for name, value in passive.items() %}<dt>{{ name }}</dt><dd>{{ value }}</dd>{% endfor %}</dl>
+  <h2>Task 2: Active browser features</h2>
+  <dl id="feature-output"></dl>
+  <h2>Part 4: SHA-256 of active features</h2>
+  <p><code id="hash-output">Calculating...</code></p>
+  <p><a href="{{ url_for('typing') }}">Go to the typing experiment</a></p>
+  <script src="{{ url_for('static', filename='fingerprint.js') }}"></script>
+</body>
 </html>

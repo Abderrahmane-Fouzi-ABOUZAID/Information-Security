@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Alice's Typing Rhythm</title>
+  <style>
+    body { font: 16px system-ui, sans-serif; max-width: 850px; margin: 40px auto; padding: 0 20px; line-height: 1.5; }
+    input { width: min(100%, 680px); padding: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Task 3–4: Alice's Typing Rhythm</h1>
+  <p id="target-sentence">Cookies are gone, but Alice’s rhythm still leaves traces!</p>
+  <label for="typing-input">Type the sentence exactly:</label><br>
+  <input id="typing-input" type="text" autocomplete="off" spellcheck="false">
+  <button id="restart-button" type="button">Restart</button>
+  <div id="results" aria-live="polite"></div>
+  <p><a href="{{ url_for('home') }}">Back to browser features</a></p>
+  <script src="{{ url_for('static', filename='fingerprint2.js') }}"></script>
+</body>
+</html>
