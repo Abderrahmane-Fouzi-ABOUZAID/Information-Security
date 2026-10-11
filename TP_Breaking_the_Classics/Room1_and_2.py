@@ -103,8 +103,20 @@ GOFGGGVAQFGIEZLTUS
 '''
 
 
-key = "CODE"
+def recover_vigenere_key(message, key_length):
+    letters = "".join(char for char in message if 'A' <= char <= 'Z')
+    key = ""
+    for index in range(key_length):
+        group = letters[index::key_length]
+        most_frequent = compute_frequency(group)[0]
+        shift = (ord(most_frequent) - ord('E')) % 26
+        key += chr(ord('A') + shift)
+    return key
 
+
+key = recover_vigenere_key(ciphertext, 4)
+
+print("Recovered key:", key)
 print(vigenere_decrypt(ciphertext, key))
 
 
